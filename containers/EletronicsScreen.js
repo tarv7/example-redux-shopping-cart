@@ -3,6 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import {electronics} from '../Data';
 import Products from '../components/Products';
+import {connect} from 'react-redux';
 
 class EletronicsScreen extends Component {
     static navigationOptions = {
@@ -12,13 +13,19 @@ class EletronicsScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Products products={electronics} />
+                <Products products={electronics} onPress={this.props.addItemToCart} />
             </View>
         );
     }
 }
 
-export default EletronicsScreen;
+const mapDispatchToProps = dispatch => {
+    return {
+        addItemToCart: product => dispatch({ type: 'ADD_TO_CART', payload: product })
+    }
+}
+
+export default connect(null, mapDispatchToProps)(EletronicsScreen);
 
 const styles = StyleSheet.create({
     container: {

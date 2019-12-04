@@ -5,6 +5,7 @@ import {createStackNavigator} from 'react-navigation';
 import HomeScreen from './containers/HomeScreen';
 import EletronicsScreen from './containers/EletronicsScreen';
 import BooksScreen from './containers/BooksScreen';
+import CartScreen from './containers/CartScreen';
 import ShoppingCartIcon from './containers/ShoppingCartIcon';
 
 class ShoppingCart extends Component {
@@ -21,8 +22,9 @@ const AppStackNavigator = createStackNavigator({
     Home: HomeScreen,
     Eletronics: EletronicsScreen,
     Books: BooksScreen,
+    Cart: CartScreen,
 },{
-    navigationOptions: {
+    navigationOptions:  {
         headerTitle: 'Shopping App',
         headerRight: (
             <ShoppingCartIcon />
